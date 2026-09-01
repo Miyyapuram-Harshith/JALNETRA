@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-fixed-dim: #bcc7de;
+  --color-surface-container-highest: #e0e3e5;
+  --color-on-surface-variant: #45474c;
+  --color-secondary-container: #39b8fd;
+  --color-secondary: #006591;
+  --color-outline-variant: #c5c6cd;
+  --color-on-tertiary-fixed-variant: #564427;
+  --color-surface-tint: #545f73;
+  --color-inverse-primary: #bcc7de;
+  --color-primary-fixed: #d8e3fb;
+  --color-on-primary-fixed-variant: #3c475a;
+  --color-error: #ba1a1a;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-secondary-fixed-variant: #004c6e;
+  --color-surface-container-low: #f2f4f6;
+  --color-on-error-container: #93000a;
+  --color-on-background: #191c1e;
+  --color-surface-container: #eceef0;
+  --color-on-primary: #ffffff;
+  --color-background: #f7f9fb;
+  --color-on-primary-fixed: #111c2d;
+  --color-outline: #75777d;
+  --color-on-surface: #191c1e;
+  --color-inverse-surface: #2d3133;
+  --color-on-tertiary: #ffffff;
+  --color-secondary-fixed-dim: #89ceff;
+  --color-primary: #091426;
+  --color-on-tertiary-container: #a38c6a;
+  --color-tertiary: #1e1200;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary-fixed: #271902;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-on-secondary-fixed: #001e2f;
+  --color-tertiary-fixed-dim: #ddc39d;
+  --color-on-error: #ffffff;
+  --color-on-primary-container: #8590a6;
+  --color-tertiary-container: #35260c;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface: #f7f9fb;
+  --color-primary-container: #1e293b;
+  --color-inverse-on-surface: #eff1f3;
+  --color-surface-variant: #e0e3e5;
+  --color-on-secondary-container: #004666;
+  --color-error-container: #ffdad6;
+  --color-tertiary-fixed: #fadfb8;
+  --color-secondary-fixed: #c9e6ff;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  --spacing-stack-gap: 12px;
+  --spacing-grid-columns-desktop: 12;
+  --spacing-grid-columns-mobile: 4;
+  --spacing-container-margin-desktop: 32px;
+  --spacing-gutter: 16px;
+  --spacing-unit: 4px;
+  --spacing-container-margin-mobile: 16px;
+
+  --font-mono-data: monospace;
+  --font-body-lg: Inter;
+  --font-body-md: Inter;
+  --font-headline-lg: Inter;
+  --font-label-md: Inter;
+  --font-label-sm: Inter;
+  --font-display-lg: Inter;
+}

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JALNETRA Command Center Desktop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#bcc7de",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-surface-variant": "#45474c",
+                      "secondary-container": "#39b8fd",
+                      "secondary": "#006591",
+                      "outline-variant": "#c5c6cd",
+                      "on-tertiary-fixed-variant": "#564427",
+                      "surface-tint": "#545f73",
+                      "inverse-primary": "#bcc7de",
+                      "primary-fixed": "#d8e3fb",
+                      "on-primary-fixed-variant": "#3c475a",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#004c6e",
+                      "surface-container-low": "#f2f4f6",
+                      "on-error-container": "#93000a",
+                      "on-background": "#191c1e",
+                      "surface-container": "#eceef0",
+                      "on-primary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "on-primary-fixed": "#111c2d",
+                      "outline": "#75777d",
+                      "on-surface": "#191c1e",
+                      "inverse-surface": "#2d3133",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed-dim": "#89ceff",
+                      "primary": "#091426",
+                      "on-tertiary-container": "#a38c6a",
+                      "tertiary": "#1e1200",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed": "#271902",
+                      "surface-bright": "#f7f9fb",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-fixed": "#001e2f",
+                      "tertiary-fixed-dim": "#ddc39d",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#8590a6",
+                      "tertiary-container": "#35260c",
+                      "surface-container-high": "#e6e8ea",
+                      "surface": "#f7f9fb",
+                      "primary-container": "#1e293b",
+                      "inverse-on-surface": "#eff1f3",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-container": "#004666",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#fadfb8",
+                      "secondary-fixed": "#c9e6ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-gap": "12px",
+                      "grid-columns-desktop": "12",
+                      "grid-columns-mobile": "4",
+                      "container-margin-desktop": "32px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "container-margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "mono-data": [
+                              "monospace"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "mono-data": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .map-grid-overlay {
+            background-image: 
+                linear-gradient(to right, rgba(203, 213, 225, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(203, 213, 225, 0.2) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .data-card {
+            background-color: theme('colors.surface-container-lowest');
+            border: 1px solid theme('colors.outline-variant');
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .hud-panel {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid theme('colors.outline-variant');
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .time-slider-thumb.active {
+            transform: scale(1.5);
+            border-color: theme('colors.secondary');
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen w-screen overflow-hidden flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-container-margin-desktop h-16 z-50 bg-surface border-b border-outline-variant shrink-0">
+<div class="flex items-center gap-6">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">JALNETRA</h1>
+<div class="flex items-center gap-2 border-l border-outline-variant pl-6">
+<span class="flex items-center gap-1 bg-error-container text-on-error-container font-label-sm text-label-sm px-2 py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                    STATUS: LIVE
+                </span>
+<span class="font-label-md text-label-md text-on-surface-variant px-2 py-1 rounded border border-outline-variant">
+                    REGION: Hilly Village Alpha
+                </span>
+<span class="ml-4 font-label-sm text-label-sm px-2 py-1 bg-surface-variant text-on-surface-variant rounded border border-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">policy</span>
+                    SYSTEM RECOMMENDATION
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant font-mono-data text-mono-data">
+<span id="current-time">14:32:04 UTC</span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+                    Data Freshness: 8s
+                </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-weight="fill">sensors</span>
+</button>
+<button class="text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-weight="fill">wifi_tethering</span>
+</button>
+<button class="text-primary hover:bg-surface-container-low transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-weight="fill">schedule</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col py-4 w-[320px] h-full overflow-y-auto bg-surface border-r border-outline-variant shrink-0 z-40">
+<div class="px-4 mb-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[32px] text-primary">animated_images</span>
+<div>
+<h2 class="font-label-md text-label-md text-primary font-bold">System Intelligence</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">All systems operational</p>
+</div>
+</div>
+<!-- Official Evac Order Button -->
+<button class="w-full bg-error text-on-error font-label-md text-label-md py-3 rounded flex items-center justify-center gap-2 hover:bg-error/90 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+                    ISSUE EVACUATION ORDER
+                </button>
+</div>
+<div class="px-4 mb-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold tracking-wider">OPERATIONAL HIERARCHY</span>
+</div>
+<ul class="flex flex-col gap-1 flex-1 px-2">
+<li>
+<a class="flex items-center gap-3 bg-primary-container text-on-primary-container rounded-lg px-4 py-3 mx-2 scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Situation Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">warning</span>
+<span class="font-label-md text-label-md">Threat Intelligence</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Impact Assessment</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Decision Support</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">directions_run</span>
+<span class="font-label-md text-label-md">Action / Deployment</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto border-t border-outline-variant pt-4 px-2">
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-label-md text-label-md">Map Layers</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 hover:bg-surface-container-high transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Map Area -->
+<main class="flex-1 relative bg-surface-container-highest overflow-hidden">
+<!-- Temporal Simulation View (Replacing static map background) -->
+<div class="absolute inset-0 bg-cover bg-center transition-all duration-500" id="map-simulation-layer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDTgrAWrwyJ_kLep0eFJXn0mhgMJPLOpIgh1wTXwQsPIQGq5WBVnLVZaD-YoVLWKvGpAUZhg6BPBd-NBnOX-EHRUgP-GM1sAL_imoFitFv2HdDOiWdoHLYgD9sJzi-ezs3ksrPs4Tl2rM3FNZbx7ydq6Q5NPZTVpRZYkuSty3-DZc4BkH6PHvCOWjtfGOV38NHyGGoj8CG0oDQNE6qnMzENNL2zzi-yr2Xis4AI1QtAW2yPKC3cbzzO9w')">
+<div class="absolute inset-0 map-grid-overlay"></div>
+<!-- Simulated expanded hazard layer for +20 state (hidden by default, toggled via JS) -->
+<div class="absolute inset-0 bg-error/30 transition-opacity duration-500 opacity-0 mix-blend-multiply" id="hazard-expansion-overlay"></div>
+</div>
+<!-- Overlays -->
+<div class="absolute inset-0 pointer-events-none p-6">
+<!-- LIVE RISK PANEL (Top Right) -->
+<div class="absolute top-6 right-6 w-80 hud-panel rounded pointer-events-auto flex flex-col overflow-hidden border-t-4 border-t-error">
+<div class="px-4 py-3 flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-error">warning</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">RISK INTELLIGENCE</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-4 bg-surface-container-lowest">
+<div class="flex justify-between items-end pb-2 border-b border-outline-variant">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">CURRENT THREAT LEVEL</span>
+<span id="risk-level-display" class="font-headline-md text-headline-md font-bold text-primary">NORMAL</span>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">TREND</span>
+<span id="risk-trend-display" class="flex items-center gap-1 font-label-md text-label-md text-primary justify-end">
+<span class="material-symbols-outlined text-[16px]">trending_flat</span>
+                                    STABLE
+                                </span>
+</div>
+</div>
+<!-- Progressive Disclosure for Drivers -->
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer font-label-sm text-label-sm text-secondary hover:text-secondary/80 outline-none list-none">
+<span>VIEW RISK DRIVERS</span>
+<span class="material-symbols-outlined text-[18px] group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-3 grid grid-cols-2 gap-y-3 gap-x-4 border-t border-outline-variant pt-3">
+<div id="risk-drivers-container" class="col-span-2 text-xs text-on-surface-variant">
+Loading drivers...
+</div>
+</div>
+</details>
+</div>
+</div>
+<!-- Impact Metrics Panel (Right Side, below Risk) -->
+<div class="absolute top-64 right-6 w-80 hud-panel rounded pointer-events-auto flex flex-col overflow-hidden">
+<div class="bg-surface-container-low px-4 py-2 border-b border-outline-variant">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">PROJECTED IMPACT <span class="text-secondary" id="impact-time-label">(NOW)</span></span>
+</div>
+<div class="p-4 flex flex-col gap-3 bg-surface-container-lowest font-mono-data text-sm">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Pop. Affected:</span>
+<span class="font-bold text-on-surface" id="metric-pop">1,240</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Roads Threatened:</span>
+<span class="font-bold text-error" id="metric-roads">2 routes</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant">Shelters Accessible:</span>
+<span class="font-bold text-secondary" id="metric-shelters">3/4</span>
+</div>
+</div>
+</div>
+<!-- MODELED DEPARTURE WINDOW (Bottom Left) -->
+<div class="absolute bottom-24 left-6 w-[400px] hud-panel rounded pointer-events-auto overflow-hidden border-l-4 border-l-error">
+<div class="bg-surface-container-lowest px-4 py-3 border-b border-outline-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">directions_run</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">MODELED DEPARTURE WINDOW</span>
+</div>
+<div class="p-5 flex flex-col gap-4 bg-surface-container-lowest">
+<div class="flex items-center gap-5">
+<div class="flex flex-col items-center">
+<span id="dep-time-remaining" class="font-mono-data text-[40px] leading-none font-bold text-primary">--:--</span>
+<span id="dep-time-label" class="font-label-sm text-[10px] text-primary font-bold mt-1">TIME REMAINING</span>
+</div>
+<div class="flex flex-col gap-1.5 flex-1 border-l border-outline-variant pl-4">
+<div class="flex justify-between items-center font-mono-data text-xs">
+<span class="text-on-surface-variant">Hazard Arrival:</span>
+<span id="dep-hazard-arrival" class="font-bold text-primary">--:--</span>
+</div>
+<div class="flex justify-between items-center font-mono-data text-xs">
+<span class="text-on-surface-variant">Travel Time:</span>
+<span id="dep-travel-time" class="font-bold">--:--</span>
+</div>
+<div class="flex justify-between items-center font-mono-data text-[10px]">
+<span class="text-on-surface-variant">Uncertainty Buffer:</span>
+<span id="dep-safety-buffer" class="font-bold text-secondary">--:--</span>
+</div>
+</div>
+</div>
+<div id="dep-recommendation-box" class="bg-surface-container-low px-4 py-3 rounded border border-outline-variant flex flex-col gap-2 mt-2">
+<div id="dep-recommendation-title" class="flex items-center gap-2 text-primary font-bold font-label-md">
+<span class="material-symbols-outlined text-[18px]">info</span>
+                            RECOMMENDATION: MONITOR
+                        </div>
+<span id="dep-recommendation-text" class="font-label-sm text-xs text-on-surface font-medium block">
+                            No immediate evacuation required
+                        </span>
+<p class="font-label-sm text-[10px] text-on-surface-variant italic mt-1 leading-tight">
+                            Route C currently remains viable. Conditions may change as the hazard evolves.
+                        </p>
+</div>
+</div>
+</div>
+<!-- MAP TIME MACHINE (Bottom Center) -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[700px] hud-panel rounded pointer-events-auto px-6 py-4 flex flex-col gap-3">
+<div class="flex justify-between items-center px-2">
+<span class="font-label-sm text-label-sm font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span>
+                            TEMPORAL SIMULATION
+                         </span>
+<span class="font-mono-data text-[10px] text-on-surface-variant">PREDICTIVE MODEL: BHARATPUR-v4.2</span>
+</div>
+<div class="relative w-full h-10 flex items-center mt-2">
+<!-- Track Background -->
+<div class="absolute left-4 right-4 h-1 bg-outline-variant rounded-full"></div>
+<!-- Progress Fill -->
+<div class="absolute left-4 w-[0%] h-1 bg-secondary rounded-full transition-all duration-300" id="time-progress"></div>
+<!-- Markers -->
+<div class="w-full flex justify-between absolute left-0 right-0 px-4">
+<!-- NOW -->
+<div class="flex flex-col items-center gap-2 cursor-pointer z-10" onclick="setTimeState(0, this)">
+<div class="w-4 h-4 rounded-full bg-secondary border-2 border-surface-container-lowest time-slider-thumb active shadow-sm transition-transform duration-200"></div>
+<span class="font-mono-data text-[10px] font-bold text-secondary absolute top-6">NOW</span>
+</div>
+<!-- +10 -->
+<div class="flex flex-col items-center gap-2 cursor-pointer z-10" onclick="setTimeState(20, this)">
+<div class="w-3 h-3 rounded-full bg-outline-variant border-2 border-surface-container-lowest time-slider-thumb shadow-sm transition-transform duration-200"></div>
+<span class="font-mono-data text-[10px] text-on-surface-variant absolute top-6">+10</span>
+</div>
+<!-- +20 (Triggers changes) -->
+<div class="flex flex-col items-center gap-2 cursor-pointer z-10" onclick="setTimeState(40, this)">
+<div class="w-3 h-3 rounded-full bg-outline-variant border-2 border-surface-container-lowest time-slider-thumb shadow-sm transition-transform duration-200"></div>
+<span class="font-mono-data text-[10px] text-on-surface-variant absolute top-6">+20</span>
+</div>
+<!-- +30 -->
+<div class="flex flex-col items-center gap-2 cursor-pointer z-10" onclick="setTimeState(60, this)">
+<div class="w-3 h-3 rounded-full bg-outline-variant border-2 border-surface-container-lowest time-slider-thumb shadow-sm transition-transform duration-200"></div>
+<span class="font-mono-data text-[10px] text-on-surface-variant absolute top-6">+30</span>
+</div>
+<!-- +45 -->
+<div class="flex flex-col items-center gap-2 cursor-pointer z-10" onclick="setTimeState(80, this)">
+<div class="w-3 h-3 rounded-full bg-outline-variant border-2 border-surface-container-lowest time-slider-thumb shadow-sm transition-transform duration-200"></div>
+<span class="font-mono-data text-[10px] text-on-surface-variant absolute top-6">+45</span>
+</div>
+<!-- +60 -->
+<div class="flex flex-col items-center gap-2 cursor-pointer z-10" onclick="setTimeState(100, this)">
+<div class="w-3 h-3 rounded-full bg-outline-variant border-2 border-surface-container-lowest time-slider-thumb shadow-sm transition-transform duration-200"></div>
+<span class="font-mono-data text-[10px] text-on-surface-variant absolute top-6">+60</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Incident Queue (Hidden/Minimized to reduce clutter, accessible via nav) -->
+<div class="absolute bottom-6 right-6 pointer-events-auto">
+<button class="bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-full font-label-sm text-on-surface-variant flex items-center gap-2 hover:bg-surface-container-low transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-error">campaign</span>
+                3 Critical Alerts
+            </button>
+</div>
+</div>
+</main>
+</div>
+<script>
+        // Simple clock update
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toISOString().substring(11, 19) + ' UTC';
+        }, 1000);
+
+        const API_BASE = "http://localhost:8000/api";
+        const WS_BASE = "ws://localhost:8000/ws";
+
+        async function fetchRisk() {
+            try {
+                const res = await fetch(`${API_BASE}/risk`);
+                const data = await res.json();
+                updateRiskUI(data);
+            } catch (e) {
+                console.error("Failed to fetch risk", e);
+            }
+        }
+
+        async function fetchDeparture() {
+            try {
+                const res = await fetch(`${API_BASE}/routes`);
+                const data = await res.json();
+                updateDepartureUI(data.safe_departure);
+            } catch (e) {
+                console.error("Failed to fetch routes", e);
+            }
+        }
+
+        async function fetchImpact() {
+            try {
+                const res = await fetch(`${API_BASE}/impact`);
+                const data = await res.json();
+                document.getElementById('metric-pop').textContent = data.affected_population_estimate;
+                document.getElementById('metric-roads').textContent = `${data.threatened_roads.length} routes`;
+                document.getElementById('metric-shelters').textContent = `${data.threatened_facilities.length} affected`;
+            } catch (e) {
+                console.error("Failed to fetch impact", e);
+            }
+        }
+
+        function updateRiskUI(data) {
+            const levelMap = {
+                "NORMAL": { color: "text-primary", icon: "check_circle" },
+                "AWARENESS": { color: "text-secondary", icon: "info" },
+                "WATCH": { color: "text-on-tertiary-container", icon: "warning" },
+                "WARNING": { color: "text-error", icon: "warning" },
+                "EVACUATE": { color: "text-error", icon: "campaign" },
+                "CRITICAL": { color: "text-error", icon: "error" }
+            };
+            
+            const trendMap = {
+                "STABLE": { color: "text-primary", icon: "trending_flat" },
+                "INCREASING": { color: "text-on-tertiary-container", icon: "trending_up" },
+                "RAPIDLY_INCREASING": { color: "text-error", icon: "trending_up" },
+                "DECREASING": { color: "text-secondary", icon: "trending_down" }
+            };
+
+            const levelInfo = levelMap[data.overall_risk] || levelMap["NORMAL"];
+            const trendInfo = trendMap[data.overall_trend] || trendMap["STABLE"];
+
+            // Find highest risk zone
+            const highestRiskZone = data.zones.reduce((prev, current) => (prev.risk_probability > current.risk_probability) ? prev : current);
+            
+            const riskLevelDisplay = document.getElementById('risk-level-display');
+            riskLevelDisplay.textContent = `${data.overall_risk} (${(highestRiskZone.risk_probability * 100).toFixed(1)}%)`;
+            riskLevelDisplay.className = `font-headline-md text-headline-md font-bold ${levelInfo.color}`;
+
+            const riskTrendDisplay = document.getElementById('risk-trend-display');
+            riskTrendDisplay.innerHTML = `<span class="material-symbols-outlined text-[16px]">${trendInfo.icon}</span> ${data.overall_trend}`;
+            riskTrendDisplay.className = `flex items-center gap-1 font-label-md text-label-md justify-end ${trendInfo.color}`;
+
+            const driversContainer = document.getElementById('risk-drivers-container');
+            if (highestRiskZone.risk_drivers && highestRiskZone.risk_drivers.length > 0) {
+                driversContainer.innerHTML = highestRiskZone.risk_drivers.map(d => `<div class="mb-1">• ${d.factor}: ${d.description}</div>`).join('');
+            } else {
+                driversContainer.innerHTML = "No significant risk drivers detected.";
+            }
+
+            // Update hazard overlay based on risk
+            const hazardOverlay = document.getElementById('hazard-expansion-overlay');
+            if (data.overall_risk === "WARNING" || data.overall_risk === "EVACUATE" || data.overall_risk === "CRITICAL") {
+                hazardOverlay.classList.remove('opacity-0');
+                hazardOverlay.classList.add('opacity-100');
+            } else {
+                hazardOverlay.classList.remove('opacity-100');
+                hazardOverlay.classList.add('opacity-0');
+            }
+        }
+
+        function updateDepartureUI(dep) {
+            const formatMin = (m) => m ? `${Math.round(m)}m` : "--:--";
+
+            document.getElementById('dep-hazard-arrival').textContent = formatMin(dep.hazard_arrival_minutes);
+            document.getElementById('dep-travel-time').textContent = formatMin(dep.travel_time_minutes);
+            document.getElementById('dep-safety-buffer').textContent = formatMin(dep.safety_buffer_minutes);
+            
+            const tr = document.getElementById('dep-time-remaining');
+            const tl = document.getElementById('dep-time-label');
+            const box = document.getElementById('dep-recommendation-box');
+            const title = document.getElementById('dep-recommendation-title');
+            const text = document.getElementById('dep-recommendation-text');
+
+            if (dep.safe_departure_window_minutes > 0) {
+                tr.textContent = formatMin(dep.safe_departure_window_minutes);
+                if (dep.safe_departure_window_minutes < 15) {
+                    tr.className = "font-mono-data text-[40px] leading-none font-bold text-error";
+                    tl.className = "font-label-sm text-[10px] text-error font-bold mt-1";
+                    
+                    box.className = "bg-error/10 px-4 py-3 rounded border border-error/20 flex flex-col gap-2 mt-2";
+                    title.className = "flex items-center gap-2 text-error font-bold font-label-md";
+                    title.innerHTML = `<span class="material-symbols-outlined text-[18px]">warning</span> RECOMMENDATION: LEAVE NOW`;
+                } else {
+                    tr.className = "font-mono-data text-[40px] leading-none font-bold text-on-tertiary-container";
+                    tl.className = "font-label-sm text-[10px] text-on-tertiary-container font-bold mt-1";
+                    
+                    box.className = "bg-surface-container-low px-4 py-3 rounded border border-outline-variant flex flex-col gap-2 mt-2";
+                    title.className = "flex items-center gap-2 text-on-tertiary-container font-bold font-label-md";
+                    title.innerHTML = `<span class="material-symbols-outlined text-[18px]">warning</span> RECOMMENDATION: PREPARE`;
+                }
+                
+                text.textContent = dep.recommended_shelter_name && dep.recommended_route ? 
+                    `Proceed to ${dep.recommended_shelter_name} via ${dep.recommended_route.route_name}` : 
+                    "No route available";
+            } else if (dep.hazard_arrival_minutes <= 0) {
+                tr.textContent = "0m";
+                tr.className = "font-mono-data text-[40px] leading-none font-bold text-error";
+                tl.className = "font-label-sm text-[10px] text-error font-bold mt-1";
+                
+                box.className = "bg-error px-4 py-3 rounded border border-error flex flex-col gap-2 mt-2 text-on-error";
+                title.className = "flex items-center gap-2 text-on-error font-bold font-label-md";
+                title.innerHTML = `<span class="material-symbols-outlined text-[18px]">error</span> HAZARD ARRIVED`;
+                text.textContent = "Too late to evacuate. Shelter in place immediately.";
+            } else {
+                tr.textContent = "--:--";
+                tr.className = "font-mono-data text-[40px] leading-none font-bold text-primary";
+                tl.className = "font-label-sm text-[10px] text-primary font-bold mt-1";
+                
+                box.className = "bg-surface-container-low px-4 py-3 rounded border border-outline-variant flex flex-col gap-2 mt-2";
+                title.className = "flex items-center gap-2 text-primary font-bold font-label-md";
+                title.innerHTML = `<span class="material-symbols-outlined text-[18px]">info</span> RECOMMENDATION: MONITOR`;
+                text.textContent = "No immediate evacuation required";
+            }
+        }
+
+        // Websocket connection
+        function connectWS() {
+            const ws = new WebSocket(`${WS_BASE}/risk`);
+            
+            ws.onmessage = (event) => {
+                const msg = JSON.parse(event.data);
+                if (msg.event === "RISK_UPDATED" || msg.event === "RISK_ESCALATED" || msg.event === "RISK_DEESCALATED") {
+                    console.log("Risk update received via WS");
+                    fetchRisk();
+                    fetchDeparture();
+                    fetchImpact();
+                }
+            };
+
+            ws.onclose = () => {
+                console.log("WS closed. Reconnecting in 5s...");
+                setTimeout(connectWS, 5000);
+            };
+        }
+
+        // Time Machine Logic (Simulation integration)
+        async function setTimeState(percentage, element) {
+            document.getElementById('time-progress').style.width = percentage + '%';
+            
+            document.querySelectorAll('.time-slider-thumb').forEach(el => {
+                el.classList.remove('active', 'w-4', 'h-4', 'bg-secondary');
+                el.classList.add('w-3', 'h-3', 'bg-outline-variant');
+                el.nextElementSibling.classList.remove('text-secondary', 'font-bold');
+                el.nextElementSibling.classList.add('text-on-surface-variant');
+            });
+            
+            const thumb = element.querySelector('.time-slider-thumb');
+            const label = element.querySelector('span');
+            thumb.classList.remove('w-3', 'h-3', 'bg-outline-variant');
+            thumb.classList.add('active', 'w-4', 'h-4', 'bg-secondary');
+            label.classList.remove('text-on-surface-variant');
+            label.classList.add('text-secondary', 'font-bold');
+
+            // Trigger simulation steps based on time
+            if (percentage === 0) {
+                await fetch(`${API_BASE}/demo/reset`, { method: "POST" });
+                fetchRisk();
+                fetchDeparture();
+                fetchImpact();
+            } else if (percentage === 20) {
+                await fetch(`${API_BASE}/demo/rainfall/increase`, { method: "POST" });
+            } else if (percentage === 40) {
+                await fetch(`${API_BASE}/demo/rainfall/increase`, { method: "POST" });
+                await fetch(`${API_BASE}/demo/rainfall/increase`, { method: "POST" });
+            } else if (percentage === 60) {
+                await fetch(`${API_BASE}/demo/rainfall/increase`, { method: "POST" });
+                await fetch(`${API_BASE}/demo/road/close?road_id=road-bridge`, { method: "POST" });
+            } else if (percentage >= 80) {
+                await fetch(`${API_BASE}/demo/sensor/fail`, { method: "POST" });
+            }
+        }
+
+        // Initial fetch and WS connect
+        fetchRisk();
+        fetchDeparture();
+        fetchImpact();
+        connectWS();
+
+    </script>
+</body></html>

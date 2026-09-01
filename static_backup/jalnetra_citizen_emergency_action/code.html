@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>JALNETRA - Emergency Evacuation</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#bcc7de",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface-variant": "#45474c",
+                        "secondary-container": "#39b8fd",
+                        "secondary": "#006591",
+                        "outline-variant": "#c5c6cd",
+                        "on-tertiary-fixed-variant": "#564427",
+                        "surface-tint": "#545f73",
+                        "inverse-primary": "#bcc7de",
+                        "primary-fixed": "#d8e3fb",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#004c6e",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#111c2d",
+                        "outline": "#75777d",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#89ceff",
+                        "primary": "#091426",
+                        "on-tertiary-container": "#a38c6a",
+                        "tertiary": "#1e1200",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#271902",
+                        "surface-bright": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#001e2f",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#8590a6",
+                        "tertiary-container": "#35260c",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#1e293b",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary-container": "#004666",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#fadfb8",
+                        "secondary-fixed": "#c9e6ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-gap": "12px",
+                        "grid-columns-desktop": "12",
+                        "grid-columns-mobile": "4",
+                        "container-margin-desktop": "32px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "container-margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "mono-data": ["monospace"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Pulse animation for the timer to induce urgency without being overwhelming */
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(0.98); }
+        }
+        .animate-urgent {
+            animation: subtle-pulse 2s infinite ease-in-out;
+        }
+        
+        /* Ensure safe area for modern mobile devices (notches, home bars) */
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-hidden flex flex-col h-screen select-none">
+<!-- CRITICAL ALERT BANNER (Fixed Top) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-error text-on-error shadow-md pt-safe">
+<div class="px-container-margin-mobile py-4 flex flex-col items-center justify-center text-center">
+<div class="flex items-center gap-2 mb-1 animate-urgent">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile tracking-wider font-bold">EVACUATE ORDER</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="font-label-md text-label-md opacity-90 uppercase tracking-widest">
+                System Recommendation based on modeled conditions
+            </div>
+</div>
+</header>
+<!-- MAIN CONTENT CANVAS -->
+<main class="flex-1 overflow-y-auto mt-[100px] mb-[180px] px-container-margin-mobile flex flex-col gap-4 py-4">
+<!-- HIERARCHY 1: YOUR RISK -->
+<section class="bg-surface-container-lowest border border-error/50 rounded-xl p-4 shadow-sm flex flex-col gap-2 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-error"></div>
+<div class="font-label-sm text-label-sm text-error uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">priority_high</span> YOUR RISK LEVEL
+    </div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">Critical Flood Danger</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Estimated impact at your location in ~28 minutes.</div>
+</section>
+<!-- HIERARCHY 2: TIME (Safe Departure Window) -->
+<section class="bg-primary-container text-on-primary rounded-xl p-6 flex flex-col items-center justify-center shadow-md border border-primary-fixed-dim/30">
+<h2 class="font-label-md text-label-md text-primary-fixed uppercase tracking-widest mb-4">
+        Safe Departure Window
+    </h2>
+<div class="flex flex-col items-center gap-1">
+<div class="font-display-lg text-[64px] leading-none font-black tracking-tighter text-error flex items-baseline gap-2">
+            13<span class="text-3xl">:24</span>
+</div>
+<div class="font-mono-data text-mono-data opacity-80 mt-2">HAZARD ARRIVAL: ~28m</div>
+</div>
+</section>
+<!-- HIERARCHY 3: ACTION -->
+<section class="bg-error text-on-error rounded-xl p-4 flex flex-col items-center justify-center shadow-sm animate-urgent">
+<div class="font-headline-lg text-headline-lg font-black uppercase tracking-wider text-center">
+        LEAVE NOW<br/><span class="font-headline-md opacity-90">अभी निकलें</span>
+</div>
+</section>
+<!-- HIERARCHY 4: DESTINATION -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div class="flex-1">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Recommended Shelter / अनुशंसित आश्रय</div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">Shelter B</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">route</span> via Route C
+            </div>
+</div>
+</div>
+</section>
+<!-- MINIMALIST GIS MAP -->
+<section class="relative w-full h-48 md:h-64 rounded-xl overflow-hidden border border-outline-variant bg-surface-container shadow-sm flex-shrink-0">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A minimalist digital Geographic Information System (GIS) map interface displayed on a mobile screen. The map uses a high-contrast neutral light-mode base layer. A clearly defined, thick, vibrant green path indicates a safe evacuation route leading away from a stark, semi-transparent deep red polygonal zone representing an environmental hazard or disaster area. The style is modern, utilitarian, flat, and highly legible, suitable for an emergency response application interface, devoid of unnecessary topographical clutter." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHS17AlU3Yb2FOfm6kAEJ0JtJd6fPntFQkldFjh6zldL4Vh2_5ZgEeFHk96VoWHKy5QkF7_pW91sICFbe8ogfaIZNrSEFQf3QJWtwXX0B57tySKiYszDUV80jfQ7QZP5y8oIrkrW95ALKKHebYYQTxVXnQjnTjgcJY5S50y628_p3xbxT_6wBhSY0ackJEHgb04UdbA6IyvqrlF0ZfVeMU0WkX6BpJa-a5erhJySX8s1Um-pKnC_MJ7w')"></div>
+<!-- Map Overlay UI -->
+<div class="absolute top-2 left-2 bg-surface/90 backdrop-blur-sm border border-outline-variant rounded px-2 py-1 flex items-center gap-1 shadow-sm">
+<div class="w-3 h-3 rounded-full bg-error animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-on-surface uppercase">Live</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-primary text-on-primary rounded-full p-2 shadow-md flex items-center justify-center opacity-80">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</div>
+</section>
+</main>
+<!-- LARGE ACTION BUTTONS (Fixed Bottom) -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant p-container-margin-mobile pb-safe z-50 flex flex-col gap-3 shadow-[0_-4px_6px_rgba(0,0,0,0.05)]">
+<!-- Primary Action -->
+<button class="w-full h-16 bg-primary text-on-primary rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-3 transition-transform active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">navigation</span>
+            NAVIGATE <span class="font-body-md opacity-70 ml-1">नेविगेट करें</span>
+</button>
+<!-- Secondary/SOS Action -->
+<button class="w-full h-14 bg-surface-container-lowest border-2 border-error text-error rounded-xl font-label-md text-label-md font-bold flex items-center justify-center gap-2 transition-transform active:scale-[0.98]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">sos</span>
+            NEED HELP <span class="font-body-md opacity-70 font-normal ml-1">मदद चाहिए</span>
+</button>
+</footer>
+</body></html>
